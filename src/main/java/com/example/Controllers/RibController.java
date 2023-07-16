@@ -1,49 +1,27 @@
-package com.example.jsreports;
-
+package com.example.Controllers;
 import com.example.classes.RibData;
-import io.swagger.annotations.ApiOperation;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ResourceUtils;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.*;
 
-@SpringBootApplication
 @RestController
-public class JSreportsApplication {
+public class RibController {
 
-    @GetMapping("/GetDetail")
-    public  String GetDetail(){
-        return "Congratulation";
-    }
-    @GetMapping("/RibDetails")
-    public String RibDetails() {
-        return "ggh";
-    }
-
-    @PostMapping("/generateReport")
+    @PostMapping("/api/generateReport")
     public ResponseEntity<Map<String, Object>> generateReport(@RequestBody RibData ribData) {
         try {
+
             String filePath = ResourceUtils.getFile("classpath:RibTemplate.jrxml")
                     .getAbsolutePath();
 
@@ -80,26 +58,6 @@ public class JSreportsApplication {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public static void main(String[] args) {
-        SpringApplication.run(JSreportsApplication.class, args);
-    }
-
-    @Bean
-    public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.example.jsreports.Controllers")) // Specify the base package of your controllers
-                .paths(PathSelectors.any())
-                .build().apiInfo(apiInfo());
-    }
-    private ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-                .title("All Reports")
-                .description("Jasper Report Vista")
-                .version("1.0.0")
-                .build();
     }
 
 }

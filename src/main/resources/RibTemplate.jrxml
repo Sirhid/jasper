@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.5.final using JasperReports Library version 6.20.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Flower" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c72f96d9-38c2-435f-af49-97a4a2b29c57">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="687"/>
+    <style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false"/>
+    <style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false"/>
+    <style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+    <style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+    <style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+        <conditionalStyle>
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+            <style mode="Opaque" backcolor="#F0EFEF"/>
+        </conditionalStyle>
+    </style>
+    <subDataset name="PieChartDataset" uuid="39581794-7f4c-48d6-8f6a-b421776f515c"/>
+    <queryString>
+        <![CDATA[]]>
+    </queryString>
+    <field name="fullname" class="java.lang.String"/>
+    <field name="currency" class="java.lang.String"/>
+    <field name="iban" class="java.lang.String"/>
+    <field name="rib" class="java.lang.String"/>
+    <background>
+        <band height="802" splitType="Stretch">
+            <staticText>
+                <reportElement mode="Transparent" x="140" y="554" width="531" height="248" forecolor="#F5E0DF" backcolor="#BF2B28" uuid="c6af94b8-ce4b-4d72-a43a-1f1be0ec3957"/>
+                <textElement>
+                    <font fontName="Corbel Light" size="200"/>
+                </textElement>
+                <text><![CDATA[VISTA]]></text>
+            </staticText>
+        </band>
+    </background>
+    <title>
+        <band height="94" splitType="Stretch">
+            <frame>
+                <reportElement mode="Opaque" x="-20" y="0" width="597" height="47" forecolor="#BF2B28" backcolor="#BF2B28" uuid="29f958b3-9df5-4ee0-905e-9fd33029926f"/>
+                <staticText>
+                    <reportElement style="Title" x="100" y="13" width="179" height="21" uuid="cf1fabd8-9376-4a95-a65d-c762a7404011"/>
+                    <textElement textAlignment="Left">
+                        <font fontName="Gill Sans MT" size="18" isBold="false"/>
+                    </textElement>
+                    <text><![CDATA[VISTA BANK]]></text>
+                </staticText>
+                <image>
+                    <reportElement x="61" y="7" width="30" height="31" uuid="c8b65a1d-6469-4045-9253-f234f044800b"/>
+                    <imageExpression><![CDATA["C:/Users/admin/Downloads/Vista Bank Logo/Vista Bank Logo/appicon.png"]]></imageExpression>
+                </image>
+            </frame>
+            <line>
+                <reportElement positionType="FixRelativeToBottom" x="-147" y="55" width="326" height="1" forecolor="#BF2B28" uuid="1f2efa15-468e-4870-8f24-1cb1eda2034d">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <graphicElement>
+                    <pen lineWidth="3.0"/>
+                </graphicElement>
+            </line>
+            <line>
+                <reportElement positionType="FixRelativeToBottom" x="383" y="-10" width="326" height="1" forecolor="#BF2B28" uuid="f8f4bb0e-d530-4a9b-b0b0-16fa7de25f64">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <graphicElement>
+                    <pen lineWidth="3.0"/>
+                </graphicElement>
+            </line>
+        </band>
+    </title>
+    <pageHeader>
+        <band splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="40" splitType="Stretch">
+            <frame>
+                <reportElement x="0" y="0" width="556" height="40" uuid="793d06e1-d7cc-4d62-ad99-d289a8ce0026"/>
+                <staticText>
+                    <reportElement mode="Opaque" x="0" y="0" width="556" height="70" forecolor="#BF2B28" uuid="2e76e2df-b8cb-48dc-94dc-5d2ed7213949"/>
+                    <textElement textAlignment="Center">
+                        <font fontName="Gill Sans MT" size="45"/>
+                    </textElement>
+                    <text><![CDATA[Relève d'Identité Bancaire]]></text>
+                </staticText>
+            </frame>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="453" splitType="Stretch">
+            <frame>
+                <reportElement x="3" y="14" width="551" height="80" uuid="dec77cf2-1014-4b3e-9934-7f0c65a83bce"/>
+                <staticText>
+                    <reportElement mode="Transparent" x="42" y="66" width="460" height="39" forecolor="#0D0D0D" backcolor="#BF2B28" uuid="ccd3e274-4155-4cb1-9df1-9029a28a7975"/>
+                    <textElement textAlignment="Left">
+                        <font fontName="Microsoft JhengHei UI Light" size="25" isBold="true"/>
+                    </textElement>
+                    <text><![CDATA[TITULAIRE DU COMPTE]]></text>
+                </staticText>
+            </frame>
+            <textField>
+                <reportElement x="47" y="132" width="293" height="30" forecolor="#030303" uuid="f98c9ebb-31a2-412d-bf85-1ec378b7c309"/>
+                <textElement textAlignment="Left">
+                    <font fontName="SansSerif" size="20" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{fullname}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="47" y="166" width="343" height="30" forecolor="#030303" uuid="7102fe66-2d5d-47b5-b5a9-36bca0b02f57"/>
+                <textElement textAlignment="Left">
+                    <font fontName="SansSerif" size="18"/>
+                </textElement>
+                <text><![CDATA[Domiciliation:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="244" y="166" width="293" height="30" forecolor="#BF2B28" uuid="a1572647-00b1-47fe-b0b2-cbceab52b918"/>
+                <textElement textAlignment="Left">
+                    <font fontName="SansSerif" size="15"/>
+                </textElement>
+                <text><![CDATA[REPUBLIQUE]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="47" y="197" width="343" height="30" forecolor="#030303" uuid="e032b444-99e3-4a5d-b6d8-876dafb8bcd2"/>
+                <textElement textAlignment="Left">
+                    <font fontName="SansSerif" size="18"/>
+                </textElement>
+                <text><![CDATA[Devise du compte : ]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="244" y="197" width="293" height="30" forecolor="#BF2B28" uuid="8c98d5ed-323a-4d71-bd86-2381e6083369"/>
+                <textElement>
+                    <font fontName="SansSerif" size="15"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{currency}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement mode="Transparent" x="47" y="384" width="154" height="30" forecolor="#030303" backcolor="#BF2B28" uuid="f8dc8d85-dcfe-479d-b759-ddb6eb4aa254"/>
+                <textElement textAlignment="Left">
+                    <font fontName="SansSerif" size="15"/>
+                </textElement>
+                <text><![CDATA[IBAN: ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Transparent" x="47" y="353" width="154" height="30" forecolor="#030303" backcolor="#BF2B28" uuid="3bc66f1f-1215-4bc1-b2f5-0bf764862d3b"/>
+                <textElement textAlignment="Left">
+                    <font fontName="SansSerif" size="15"/>
+                </textElement>
+                <text><![CDATA[RIB: ]]></text>
+            </staticText>
+            <textField>
+                <reportElement mode="Transparent" x="244" y="353" width="293" height="30" forecolor="#BF2B28" uuid="a0679ea5-439b-4133-a745-7df1a07e29fd"/>
+                <textElement>
+                    <font fontName="SansSerif" size="15"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{rib}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement style="Row" mode="Transparent" x="244" y="384" width="293" height="30" forecolor="#BF2B28" uuid="646aaa71-1407-44ba-bf20-f2e7c036e604"/>
+                <textElement>
+                    <font fontName="SansSerif" size="15"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{iban}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="7" splitType="Stretch">
+            <line>
+                <reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="0a05d19c-77ff-48d5-91d6-460d221419e5"/>
+                <graphicElement>
+                    <pen lineWidth="0.5" lineColor="#999999"/>
+                </graphicElement>
+            </line>
+        </band>
+    </columnFooter>
+    <pageFooter>
+        <band height="21" splitType="Stretch">
+            <frame>
+                <reportElement style="Column header" mode="Opaque" x="-20" y="-5" width="594" height="25" forecolor="#D0B48E" backcolor="#BF2B28" uuid="21b8ec89-3912-4f38-b1d2-846c348d496b">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <textField evaluationTime="Report">
+                    <reportElement style="Column header" x="535" y="6" width="40" height="13" forecolor="#FFFFFF" uuid="2f1f4647-386f-4ee9-b3b1-779c70fd7960"/>
+                    <textElement verticalAlignment="Middle">
+                        <font fontName="Gill Sans MT" size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement style="Column header" x="455" y="6" width="80" height="13" forecolor="#FFFFFF" uuid="c50a7647-9d9b-4145-89d7-15adb353fac4"/>
+                    <textElement textAlignment="Right" verticalAlignment="Middle">
+                        <font fontName="Gill Sans MT" size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+                </textField>
+                <textField pattern="EEEEE dd MMMMM yyyy">
+                    <reportElement style="Column header" x="20" y="6" width="197" height="13" forecolor="#FFFFFF" uuid="2a75ce15-0152-4154-9a45-a23c6a9d3107"/>
+                    <textElement verticalAlignment="Middle">
+                        <font fontName="Gill Sans MT" size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+                </textField>
+            </frame>
+        </band>
+    </pageFooter>
+    <summary>
+        <band splitType="Stretch"/>
+    </summary>
+</jasperReport>
