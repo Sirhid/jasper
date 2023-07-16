@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class JSreportsApplication {
 
     @GetMapping("/GetDetail")
-    public  String GetDetails(){
+    public  String GetDetail(){
         return "Congratulation";
     }
 
