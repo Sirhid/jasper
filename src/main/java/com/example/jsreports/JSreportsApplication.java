@@ -32,18 +32,10 @@ import java.util.*;
 @RestController
 public class JSreportsApplication {
 
-    @GetMapping("/GetDetail")
-    public  String GetDetail(){
-        return "Congratulation";
-    }
-    @GetMapping("/RibDetails")
-    public String RibDetails() {
-        return "ggh";
-    }
-
     @PostMapping("/generateReport")
     public ResponseEntity<Map<String, Object>> generateReport(@RequestBody RibData ribData) {
         try {
+            //
             String filePath = ResourceUtils.getFile("classpath:RibTemplate.jrxml")
                     .getAbsolutePath();
 
@@ -81,6 +73,16 @@ public class JSreportsApplication {
             throw new RuntimeException(e);
         }
     }
+
+    @GetMapping("/GetDetail")
+    public  String GetDetail(){
+        return "Congratulation";
+    }
+    @GetMapping("/RibDetails")
+    public String RibDetails() {
+        return "ggh";
+    }
+
 
     public static void main(String[] args) {
         SpringApplication.run(JSreportsApplication.class, args);
