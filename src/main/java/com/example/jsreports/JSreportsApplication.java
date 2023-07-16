@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class JSreportsApplication extends SpringBootServletInitializer {
+public class JSreportsApplication {
 
     @GetMapping("/GetDetail")
     public  String GetDetail(){
@@ -21,9 +21,6 @@ public class JSreportsApplication extends SpringBootServletInitializer {
         SpringApplication.run(JSreportsApplication.class, args);
     }
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(JSreportsApplication.class);
-    }
+
 
 }

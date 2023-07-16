@@ -8,7 +8,9 @@
         <version>2.4.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
+
+
+	<groupId>com.example</groupId>
     <artifactId>JSreports</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>JSreports</name>
