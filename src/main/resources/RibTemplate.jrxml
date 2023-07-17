@@ -27,7 +27,7 @@
             <staticText>
                 <reportElement mode="Transparent" x="140" y="554" width="531" height="248" forecolor="#F5E0DF" backcolor="#BF2B28" uuid="c6af94b8-ce4b-4d72-a43a-1f1be0ec3957"/>
                 <textElement>
-                    <font fontName="Corbel Light" size="200"/>
+                    <font fontName="SansSerif" size="200"/>
                 </textElement>
                 <text><![CDATA[VISTA]]></text>
             </staticText>
