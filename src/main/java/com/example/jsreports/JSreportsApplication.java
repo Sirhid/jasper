@@ -47,15 +47,15 @@ public class JSreportsApplication {
 
             logger.debug("saheed is here 41");
 
-//           String filePath = ResourceUtils.getFile("classpath:RibTemplate.jrxml")
-//                    .getAbsolutePath();
+           String filePath = ResourceUtils.getFile("classpath:RibTemplate.jrxml")
+                    .getAbsolutePath();
 
-            Resource resource = resourceLoader.getResource("classpath:RibTemplate.jrxml");
-            InputStream inputStream = resource.getInputStream();
+//            Resource resource = resourceLoader.getResource("classpath:RibTemplate.jrxml");
+//            InputStream inputStream = resource.getInputStream();
 
 
-            logger.debug("saheed is here 45 "+ inputStream );
-            JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
+            logger.debug("saheed is here 45 "+ filePath );
+            JasperReport jasperReport = JasperCompileManager.compileReport(filePath);
             logger.debug("saheed is here 49 " + jasperReport);
 
             // Create the report parameters
