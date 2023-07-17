@@ -42,10 +42,12 @@ public class JSreportsApplication {
 
             String filePath = ResourceUtils.getFile("classpath:RibTemplate.jrxml")
                     .getAbsolutePath();
+
+            InputStream inputStream = JSreportsApplication.class.getResourceAsStream("/RibTemplate.jrxml");
             logger.debug("saheed is here 45 "+filePath );
 
 
-            JasperReport jasperReport = JasperCompileManager.compileReport(filePath);
+            JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
             logger.debug("saheed is here 49 " + jasperReport);
 
             // Create the report parameters
