@@ -27,19 +27,26 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.*;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 @SpringBootApplication
 @RestController
 public class JSreportsApplication {
+    private static final Logger logger = LoggerFactory.getLogger(JSreportsApplication.class);
 
     @PostMapping("/generateReport")
     public ResponseEntity<Map<String, Object>> generateReport(@RequestBody RibData ribData) {
         try {
             //
+            logger.debug("saheed is here 41");
+
             String filePath = ResourceUtils.getFile("classpath:RibTemplate.jrxml")
                     .getAbsolutePath();
+            logger.debug("saheed is here 45 "+filePath );
+
 
             JasperReport jasperReport = JasperCompileManager.compileReport(filePath);
+            logger.debug("saheed is here 49 " + jasperReport);
 
             // Create the report parameters
             Map<String, Object> parameters = new HashMap<>();
@@ -51,12 +58,18 @@ public class JSreportsApplication {
             // Fill the report with data
             List<RibData> list = new ArrayList<>();
             list.add(ribData);
+            logger.debug("saheed is here 60 " + ribData);
+
             JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(list);
+            logger.debug("saheed is here 64 " + dataSource);
+
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+            logger.debug("saheed is here 67 " + jasperPrint);
 
             // Export the report to PDF format
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             JasperExportManager.exportReportToPdfStream(jasperPrint, outputStream);
+            logger.debug("saheed is here 72 " + outputStream);
 
             // Convert PDF to Base64 string
             byte[] pdfBytes = outputStream.toByteArray();
