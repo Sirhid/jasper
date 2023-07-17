@@ -47,14 +47,8 @@ public class JSreportsApplication {
 
             logger.debug("saheed is here 41");
 
-//           String filePath = ResourceUtils.getFile("classpath:RibTemplate.jrxml")
-//                    .getAbsolutePath();
-
-           String filePath="ftps://jasperreport%255C%2524jasperreport@waws-prod-blu-395.ftp.azurewebsites.windows.net/site/wwwroot/RibTemplate.jrxmlftps://jasperreport%255C%2524jasperreport@waws-prod-blu-395.ftp.azurewebsites.windows.net/site/wwwroot/RibTemplate.jrxml";
-
-//            Resource resource = resourceLoader.getResource("classpath:RibTemplate.jrxml");
-//            InputStream inputStream = resource.getInputStream();
-
+           String filePath = ResourceUtils.getFile("classpath:RibTemplate.jrxml")
+                    .getAbsolutePath();
 
             logger.debug("saheed is here 45 "+ filePath );
             JasperReport jasperReport = JasperCompileManager.compileReport(filePath);
@@ -94,7 +88,10 @@ public class JSreportsApplication {
         } catch (JRException ex) {
             ex.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
