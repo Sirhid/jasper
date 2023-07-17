@@ -189,3 +189,41 @@ Action:
 
 Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
 
+2023-07-17 10:36:38.327 [main] INFO  c.e.j.JSreportsApplicationTests - Starting JSreportsApplicationTests using Java 20.0.1 on PLO_4009 with PID 27256 (started by admin in C:\Users\admin\Music\jasper)
+2023-07-17 10:36:38.330 [main] INFO  c.e.j.JSreportsApplicationTests - No active profile set, falling back to default profiles: default
+2023-07-17 10:36:41.168 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-17 10:36:41.554 [main] INFO  c.e.j.JSreportsApplicationTests - Started JSreportsApplicationTests in 3.658 seconds (JVM running for 5.084)
+2023-07-17 10:36:42.035 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-17 10:45:28.846 [main] INFO  c.e.jsreports.JSreportsApplication - Starting JSreportsApplication using Java 20.0.1 on PLO_4009 with PID 11868 (C:\Users\admin\Music\jasper\target\classes started by admin in C:\Users\admin\Music\jasper)
+2023-07-17 10:45:28.851 [main] INFO  c.e.jsreports.JSreportsApplication - No active profile set, falling back to default profiles: default
+2023-07-17 10:45:30.472 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-07-17 10:45:30.485 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2023-07-17 10:45:30.485 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-07-17 10:45:30.485 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+2023-07-17 10:45:30.610 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-07-17 10:45:30.610 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1672 ms
+2023-07-17 10:45:31.284 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2023-07-17 10:45:31.503 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2023-07-17 10:45:31.551 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2023-07-17 10:45:31.552 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2023-07-17 10:45:31.558 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2023-07-17 10:45:31.558 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-07-17 10:45:31.566 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2023-07-17 10:45:31.566 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2023-07-17 10:45:31.575 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-07-17 10:45:31.595 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+

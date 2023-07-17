@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ResourceUtils;
@@ -25,29 +26,36 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 @SpringBootApplication
 @RestController
 public class JSreportsApplication {
     private static final Logger logger = LoggerFactory.getLogger(JSreportsApplication.class);
+    private ResourceLoader resourceLoader;
+
 
     @PostMapping("/generateReport")
     public ResponseEntity<Map<String, Object>> generateReport(@RequestBody RibData ribData) {
         try {
             //
+
             logger.debug("saheed is here 41");
 
-            String filePath = ResourceUtils.getFile("classpath:RibTemplate.jrxml")
-                    .getAbsolutePath();
+//           String filePath = ResourceUtils.getFile("classpath:RibTemplate.jrxml")
+//                    .getAbsolutePath();
 
-            //InputStream inputStream = JSreportsApplication.class.getResourceAsStream("/RibTemplate.jrxml");
-            logger.debug("saheed is here 45 "+filePath );
+            Resource resource = resourceLoader.getResource("classpath:RibTemplate.jrxml");
+            InputStream inputStream = resource.getInputStream();
 
 
-            JasperReport jasperReport = JasperCompileManager.compileReport(filePath);
+            logger.debug("saheed is here 45 "+ inputStream );
+            JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
             logger.debug("saheed is here 49 " + jasperReport);
 
             // Create the report parameters
@@ -85,6 +93,8 @@ public class JSreportsApplication {
             ex.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
