@@ -67,22 +67,28 @@ public class JSreportsApplication {
             JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(list);
             logger.error("saheed is here 64 " + dataSource);
 
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
-            logger.error("saheed is here 67 " + jasperPrint);
+            try{
+                JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+                logger.error("saheed is here 67 " + jasperPrint);
 
-            // Export the report to PDF format
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            JasperExportManager.exportReportToPdfStream(jasperPrint, outputStream);
-            logger.error("saheed is here 72 " + outputStream);
+                // Export the report to PDF format
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                JasperExportManager.exportReportToPdfStream(jasperPrint, outputStream);
+                logger.error("saheed is here 72 " + outputStream);
 
-            // Convert PDF to Base64 string
-            byte[] pdfBytes = outputStream.toByteArray();
-            String base64String = Base64.getEncoder().encodeToString(pdfBytes);
+                // Convert PDF to Base64 string
+                byte[] pdfBytes = outputStream.toByteArray();
+                String base64String = Base64.getEncoder().encodeToString(pdfBytes);
 
-            Map<String, Object> response = new HashMap<>();
-            response.put("data", base64String);
+                Map<String, Object> response = new HashMap<>();
+                response.put("data", base64String);
 
-            return ResponseEntity.ok(response);
+                return ResponseEntity.ok(response);
+            }catch (Exception ex){
+                logger.error("saheed is here 72 " + ex.getMessage());
+
+            }
+
         } catch (JRException ex) {
             logger.error(ex.getMessage());
             ex.printStackTrace();
