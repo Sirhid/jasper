@@ -1,15 +1,11 @@
 package com.example.jsreports;
-
 import com.example.classes.RibData;
-import io.swagger.annotations.ApiOperation;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ResourceUtils;
@@ -23,32 +19,34 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
-
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
+import org.springframework.beans.factory.annotation.Autowired;
 @SpringBootApplication
 @RestController
 public class JSreportsApplication {
     private static final Logger logger = LoggerFactory.getLogger(JSreportsApplication.class);
+    @Autowired
     private ResourceLoader resourceLoader;
-
 
     @PostMapping("/generateReport")
     public ResponseEntity<Map<String, Object>> generateReport(@RequestBody RibData ribData) {
         try {
-            //
 
             logger.error("saheed is here 41");
 
-           String filePath = ResourceUtils.getFile("classpath:RibTemplate.jrxml")
-                    .getAbsolutePath();
+//
+//           String filePath = ResourceUtils.getFile("classpath:RibTemplate.jrxml")
+//                    .getAbsolutePath();
+
+            Resource resource = resourceLoader.getResource("classpath:RibTemplate.jrxml");
+            String filePath = resource.getFile().getAbsolutePath();
+
 
             logger.error("saheed is here 45 "+ filePath );
             JasperReport jasperReport = JasperCompileManager.compileReport(filePath);
@@ -90,8 +88,6 @@ public class JSreportsApplication {
             ex.printStackTrace();
 
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        } catch (FileNotFoundException e) {
-            logger.error(e.getMessage());
         } catch (IOException e) {
             logger.error(e.getMessage());
         }
