@@ -60,6 +60,7 @@ public class JSreportsApplication {
                 // Export the report to PDF format
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 JasperExportManager.exportReportToPdfStream(jasperPrint, outputStream);
+                logger.error("Saheed is here "+ outputStream);
 
                 // Convert PDF to Base64 string
                 byte[] pdfBytes = outputStream.toByteArray();
@@ -67,7 +68,7 @@ public class JSreportsApplication {
 
                 Map<String, Object> response = new HashMap<>();
                 response.put("data", base64String);
-
+                logger.error("Saheed is here "+ response);
                 return ResponseEntity.ok(response);
 
             }catch (Exception ex){
