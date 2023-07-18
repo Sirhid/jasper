@@ -35,23 +35,12 @@ public class JSreportsApplication {
     private ResourceLoader resourceLoader;
 
     @PostMapping("/generateReport")
-    public ResponseEntity<Map<String, Object>> generateReport(@RequestBody RibData ribData) {
+    public Object generateReport(@RequestBody RibData ribData) {
         try {
-
-            logger.error("saheed is here 41");
-
-//
-//           String filePath = ResourceUtils.getFile("classpath:RibTemplate.jrxml")
-//                    .getAbsolutePath();
 
             Resource resource = resourceLoader.getResource("classpath:RibTemplate.jrxml");
             String filePath = resource.getFile().getAbsolutePath();
-
-
-            logger.error("saheed is here 45 "+ filePath );
             JasperReport jasperReport = JasperCompileManager.compileReport(filePath);
-            logger.error("saheed is here 49 " + jasperReport);
-
             // Create the report parameters
             Map<String, Object> parameters = new HashMap<>();
             parameters.put("iban", ribData.getIban());
@@ -62,19 +51,15 @@ public class JSreportsApplication {
             // Fill the report with data
             List<RibData> list = new ArrayList<>();
             list.add(ribData);
-            logger.error("saheed is here 60 " + ribData);
 
             JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(list);
-            logger.error("saheed is here 64 " + dataSource);
 
             try{
                 JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
-                logger.error("saheed is here 67 " + jasperPrint);
 
                 // Export the report to PDF format
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 JasperExportManager.exportReportToPdfStream(jasperPrint, outputStream);
-                logger.error("saheed is here 72 " + outputStream);
 
                 // Convert PDF to Base64 string
                 byte[] pdfBytes = outputStream.toByteArray();
@@ -83,9 +68,8 @@ public class JSreportsApplication {
                 Map<String, Object> response = new HashMap<>();
                 response.put("data", base64String);
 
-                return ResponseEntity.ok(response);
+                return response;
             }catch (Exception ex){
-                logger.error("saheed is here 72 " + ex.getMessage());
 
             }
 
@@ -99,6 +83,7 @@ public class JSreportsApplication {
         }
         return null;
     }
+
 
     @GetMapping("/GetDetail")
     public  String GetDetail(){
