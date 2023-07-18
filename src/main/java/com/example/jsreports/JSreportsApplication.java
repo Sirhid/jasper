@@ -35,7 +35,7 @@ public class JSreportsApplication {
     private ResourceLoader resourceLoader;
 
     @PostMapping("/generateReport")
-    public Object generateReport(@RequestBody RibData ribData) {
+    public ResponseEntity<Map<String, Object>> generateReport(@RequestBody RibData ribData) {
         try {
 
             Resource resource = resourceLoader.getResource("classpath:RibTemplate.jrxml");
@@ -68,7 +68,8 @@ public class JSreportsApplication {
                 Map<String, Object> response = new HashMap<>();
                 response.put("data", base64String);
 
-                return response;
+                return ResponseEntity.ok(response);
+
             }catch (Exception ex){
 
             }
