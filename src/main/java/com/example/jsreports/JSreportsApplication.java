@@ -39,7 +39,7 @@ public class JSreportsApplication {
         try {
 
             Resource resource = resourceLoader.getResource("classpath:RibTemplate.jrxml");
-            String filePath = resource.getFile().getAbsolutePath();
+                      String filePath = resource.getFile().getAbsolutePath();
             JasperReport jasperReport = JasperCompileManager.compileReport(filePath);
             // Create the report parameters
             Map<String, Object> parameters = new HashMap<>();
@@ -47,6 +47,8 @@ public class JSreportsApplication {
             parameters.put("rib", ribData.getRib());
             parameters.put("fullname", ribData.getFullname());
             parameters.put("currency", ribData.getCurrency());
+            parameters.put("imageBase64", imageBase64);
+
 
             // Fill the report with data
             List<RibData> list = new ArrayList<>();
