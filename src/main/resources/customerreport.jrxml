@@ -18,17 +18,18 @@
     <queryString>
         <![CDATA[]]>
     </queryString>
-    <field name="fullname" class="java.lang.String"/>
-    <field name="currency" class="java.lang.String"/>
-    <field name="iban" class="java.lang.String"/>
-    <field name="rib" class="java.lang.String"/>
+    <field name="userid" class="java.lang.String"/>
+    <field name="customername" class="java.lang.String"/>
+    <field name="dob" class="java.lang.String"/>
+    <field name="phonenumber" class="java.lang.String"/>
     <background>
         <band height="802" splitType="Stretch">
             <staticText>
                 <reportElement mode="Transparent" x="140" y="554" width="531" height="248" forecolor="#F5E0DF" backcolor="#BF2B28" uuid="c6af94b8-ce4b-4d72-a43a-1f1be0ec3957"/>
                 <textElement>
-                    <font fontName="SansSerif" size="200"/>
+                    <font fontName="Corbel Light" size="200"/>
                 </textElement>
+
                 <text><![CDATA[VISTA]]></text>
             </staticText>
         </band>
@@ -75,90 +76,82 @@
             <frame>
                 <reportElement x="0" y="0" width="556" height="40" uuid="793d06e1-d7cc-4d62-ad99-d289a8ce0026"/>
                 <staticText>
-                    <reportElement mode="Opaque" x="0" y="0" width="556" height="70" forecolor="#BF2B28" uuid="2e76e2df-b8cb-48dc-94dc-5d2ed7213949"/>
+                    <reportElement mode="Opaque" x="0" y="-16" width="556" height="70" forecolor="#BF2B28" uuid="2e76e2df-b8cb-48dc-94dc-5d2ed7213949"/>
                     <textElement textAlignment="Center">
                         <font fontName="Gill Sans MT" size="45"/>
                     </textElement>
-                    <text><![CDATA[Relève d'Identité Bancaire]]></text>
+                    <text><![CDATA[CUSTOMER REPORTS]]></text>
                 </staticText>
             </frame>
         </band>
     </columnHeader>
     <detail>
-        <band height="453" splitType="Stretch">
+        <band height="63" splitType="Stretch">
             <frame>
-                <reportElement x="3" y="14" width="551" height="80" uuid="dec77cf2-1014-4b3e-9934-7f0c65a83bce"/>
+                <reportElement x="-20" y="7" width="596" height="30" uuid="dec77cf2-1014-4b3e-9934-7f0c65a83bce"/>
+                <frame>
+                    <reportElement mode="Opaque" x="12" y="-1" width="570" height="30" forecolor="#BF2B28" backcolor="#BF2B28" uuid="88b6d83e-8c0a-4912-b059-73197598c1cc"/>
+                    <staticText>
+                        <reportElement x="10" y="8" width="103" height="20" forecolor="#FFFFFF" uuid="7102fe66-2d5d-47b5-b5a9-36bca0b02f57"/>
+                        <textElement textAlignment="Left">
+                            <font fontName="Futura Md BT" size="12" isBold="true"/>
+                        </textElement>
+                        <text><![CDATA[USER ID]]></text>
+                    </staticText>
+                    <staticText>
+                        <reportElement x="135" y="8" width="120" height="20" forecolor="#FFFFFF" uuid="8a324e2a-fe32-4e6e-9ad5-f1ba7f8c99fc"/>
+                        <textElement textAlignment="Left">
+                            <font fontName="Futura Md BT" size="12" isBold="true"/>
+                        </textElement>
+                        <text><![CDATA[CUSTOMER NAME]]></text>
+                    </staticText>
+                    <staticText>
+                        <reportElement x="312" y="8" width="103" height="20" forecolor="#FFFFFF" uuid="b8ddf84b-036c-4ca9-bd29-9c39ada32b71"/>
+                        <textElement textAlignment="Left">
+                            <font fontName="Futura Md BT" size="12" isBold="true"/>
+                        </textElement>
+                        <text><![CDATA[D.O.B]]></text>
+                    </staticText>
+                </frame>
                 <staticText>
-                    <reportElement mode="Transparent" x="42" y="66" width="460" height="39" forecolor="#0D0D0D" backcolor="#BF2B28" uuid="ccd3e274-4155-4cb1-9df1-9029a28a7975"/>
+                    <reportElement x="442" y="8" width="103" height="20" forecolor="#FFFFFF" uuid="29d13522-f85d-459e-b08a-47f9f43dc2d9"/>
                     <textElement textAlignment="Left">
-                        <font fontName="Microsoft JhengHei UI Light" size="25" isBold="true"/>
+                        <font fontName="Futura Md BT" size="12" isBold="true"/>
                     </textElement>
-                    <text><![CDATA[TITULAIRE DU COMPTE]]></text>
+                    <text><![CDATA[PHONE NUMBER]]></text>
                 </staticText>
             </frame>
-            <textField>
-                <reportElement x="47" y="132" width="293" height="30" forecolor="#030303" uuid="f98c9ebb-31a2-412d-bf85-1ec378b7c309"/>
-                <textElement textAlignment="Left">
-                    <font fontName="SansSerif" size="20" isBold="true"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{fullname}]]></textFieldExpression>
-            </textField>
-            <staticText>
-                <reportElement x="47" y="166" width="343" height="30" forecolor="#030303" uuid="7102fe66-2d5d-47b5-b5a9-36bca0b02f57"/>
-                <textElement textAlignment="Left">
-                    <font fontName="SansSerif" size="18"/>
-                </textElement>
-                <text><![CDATA[Domiciliation:]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="244" y="166" width="293" height="30" forecolor="#BF2B28" uuid="a1572647-00b1-47fe-b0b2-cbceab52b918"/>
-                <textElement textAlignment="Left">
-                    <font fontName="SansSerif" size="15"/>
-                </textElement>
-                <text><![CDATA[REPUBLIQUE]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="47" y="197" width="343" height="30" forecolor="#030303" uuid="e032b444-99e3-4a5d-b6d8-876dafb8bcd2"/>
-                <textElement textAlignment="Left">
-                    <font fontName="SansSerif" size="18"/>
-                </textElement>
-                <text><![CDATA[Devise du compte : ]]></text>
-            </staticText>
-            <textField>
-                <reportElement x="244" y="197" width="293" height="30" forecolor="#BF2B28" uuid="8c98d5ed-323a-4d71-bd86-2381e6083369"/>
-                <textElement>
-                    <font fontName="SansSerif" size="15"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{currency}]]></textFieldExpression>
-            </textField>
-            <staticText>
-                <reportElement mode="Transparent" x="47" y="384" width="154" height="30" forecolor="#030303" backcolor="#BF2B28" uuid="f8dc8d85-dcfe-479d-b759-ddb6eb4aa254"/>
-                <textElement textAlignment="Left">
-                    <font fontName="SansSerif" size="15"/>
-                </textElement>
-                <text><![CDATA[IBAN: ]]></text>
-            </staticText>
-            <staticText>
-                <reportElement mode="Transparent" x="47" y="353" width="154" height="30" forecolor="#030303" backcolor="#BF2B28" uuid="3bc66f1f-1215-4bc1-b2f5-0bf764862d3b"/>
-                <textElement textAlignment="Left">
-                    <font fontName="SansSerif" size="15"/>
-                </textElement>
-                <text><![CDATA[RIB: ]]></text>
-            </staticText>
-            <textField>
-                <reportElement mode="Transparent" x="244" y="353" width="293" height="30" forecolor="#BF2B28" uuid="a0679ea5-439b-4133-a745-7df1a07e29fd"/>
-                <textElement>
-                    <font fontName="SansSerif" size="15"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{rib}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement style="Row" mode="Transparent" x="244" y="384" width="293" height="30" forecolor="#BF2B28" uuid="646aaa71-1407-44ba-bf20-f2e7c036e604"/>
-                <textElement>
-                    <font fontName="SansSerif" size="15"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{iban}]]></textFieldExpression>
-            </textField>
+            <frame>
+                <reportElement style="Row" mode="Opaque" x="-8" y="43" width="570" height="20" uuid="4c71f3cf-d1af-4d1e-b129-6bbe0ade841e"/>
+                <textField isBlankWhenNull="false">
+                    <reportElement x="9" y="0" width="104" height="20" uuid="ab3545d8-1f51-448d-9f62-5582c6ab5573"/>
+                    <textElement>
+                        <font fontName="Futura Md BT" size="12"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$F{userid}]]></textFieldExpression>
+                </textField>
+                <textField isBlankWhenNull="false">
+                    <reportElement x="135" y="0" width="155" height="20" uuid="2659681d-0dda-4db2-89e8-2e4e1cde4d57"/>
+                    <textElement>
+                        <font fontName="Futura Md BT" size="12"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$F{customername}]]></textFieldExpression>
+                </textField>
+                <textField isBlankWhenNull="false">
+                    <reportElement x="310" y="0" width="105" height="20" uuid="6ab259eb-4be3-4d68-be02-7309d060f2eb"/>
+                    <textElement>
+                        <font fontName="Futura Md BT" size="12"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$F{dob}]]></textFieldExpression>
+                </textField>
+                <textField isBlankWhenNull="false">
+                    <reportElement x="431" y="0" width="132" height="20" uuid="c443503b-71f2-4eb5-94bc-2741be816dd0"/>
+                    <textElement>
+                        <font fontName="Futura Md BT" size="12"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$F{phonenumber}]]></textFieldExpression>
+                </textField>
+            </frame>
         </band>
     </detail>
     <columnFooter>
