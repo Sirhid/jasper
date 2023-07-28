@@ -100,6 +100,8 @@ public class JSreportsApplication {
 
             }catch (Exception ex){
                 logger.error("saheed here 107" + ex.getMessage());
+                               // logger.error("saheed here 107" + ex.getMessage());
+
 
             }
 
